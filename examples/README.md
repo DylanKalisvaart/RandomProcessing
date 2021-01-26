@@ -1,2 +1,2 @@
 # Examples
-In this folder, you find a list of examples. Please extract and run from outside the RandomProcessing package to avoid import errors, or correct the imports to set the correct path.
+In this folder, you find a list of examples. The path to examples is currently set to be ran from within this folder. Please make sure to change the path if you run the examples from a different location.
