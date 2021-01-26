@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 #load 1D random walk data from the data folder
-random_walk_1D_data = np.load(r'data/data/random_walk_1D_data.npy')
+random_walk_1D_data = np.load(r'raw_data/random_walk_1D_data.npy')
 
 
 #calculate the mean (<x>) the mean squared (<x^2>)
@@ -18,12 +18,12 @@ ax.plot(mean_sqrd)
 [a, b] = np.polyfit(time, mean_sqrd, deg = 1)
 ax.plot(time, b + a*time)
 
-plt.savefig('analyze/oneD_walk_mean_sqrd')
+plt.savefig('processed_data/oneD_walk_mean_sqrd')
 
 #calculate the diffusion coefficient
 diff_coef = a*2
 
 #Save extracted parameters
-np.save('analyze/random_walk_1D_mean', mean)
-np.save('analyze/random_walk_1D_meanSqrd', mean_sqrd)
-np.save('analyze/random_walk_1D_diffusioncoef', diff_coef)
+np.save('processed_data/random_walk_1D_mean', mean)
+np.save('processed_data/random_walk_1D_meanSqrd', mean_sqrd)
+np.save('processed_data/random_walk_1D_diffusioncoef', diff_coef)

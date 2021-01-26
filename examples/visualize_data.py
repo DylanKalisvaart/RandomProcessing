@@ -6,10 +6,10 @@ import matplotlib.pyplot as plt
 import matplotlib.gridspec as gridspec
 
 #load 1D random walk data + statistics
-random_walk_1D_data = np.load(r'../data/data/random_walk_1D_data.npy')
-mean = np.load(r'../analyze/random_walk_1D_mean.npy')
-mean_sqrd = np.load(r'../RandomProcessing/analyze/random_walk_1D_meanSqrd.npy')
-diff_coef = np.load(r'../RandomProcessing/analyze/random_walk_1D_diffusioncoef.npy')
+random_walk_1D_data = np.load(r'raw_data/random_walk_1D_data.npy')
+mean = np.load(r'processed_data/random_walk_1D_mean.npy')
+mean_sqrd = np.load(r'processed_data/random_walk_1D_meanSqrd.npy')
+diff_coef = np.load(r'processed_data/random_walk_1D_diffusioncoef.npy')
 
 Nsteps = np.shape(random_walk_1D_data)[1]
 Nwalks = np.shape(random_walk_1D_data)[0]
@@ -71,4 +71,4 @@ ax3.set_ylabel('#instances', fontsize = label_fontsize)
 
 #tight layout and save figure in the postprocess folder
 plt.tight_layout(pad = 2)
-plt.savefig('postprocess/1D_summaryFig')
+plt.savefig('processed_data/1D_summaryFig')
