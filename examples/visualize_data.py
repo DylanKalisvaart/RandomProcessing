@@ -1,12 +1,15 @@
+import sys
+sys.path.append('../..')
+
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.gridspec as gridspec
 
 #load 1D random walk data + statistics
-random_walk_1D_data = np.load(r'data/data/random_walk_1D_data.npy')
-mean = np.load(r'analyze/random_walk_1D_mean.npy')
-mean_sqrd = np.load(r'analyze/random_walk_1D_meanSqrd.npy')
-diff_coef = np.load(r'analyze/random_walk_1D_diffusioncoef.npy')
+random_walk_1D_data = np.load(r'RandomProcessing/data/data/random_walk_1D_data.npy')
+mean = np.load(r'RandomProcessing/analyze/random_walk_1D_mean.npy')
+mean_sqrd = np.load(r'RandomProcessing/analyze/random_walk_1D_meanSqrd.npy')
+diff_coef = np.load(r'RandomProcessing/analyze/random_walk_1D_diffusioncoef.npy')
 
 Nsteps = np.shape(random_walk_1D_data)[1]
 Nwalks = np.shape(random_walk_1D_data)[0]
