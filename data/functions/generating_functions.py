@@ -12,6 +12,3 @@ def random_walk_1D(Nsteps = 10, Nwalks = 1):
     """
     
     return 2*np.round(np.random.rand(Nwalks, Nsteps))-1
-    
-
-    
