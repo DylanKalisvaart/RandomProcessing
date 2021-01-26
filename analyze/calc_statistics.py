@@ -1,29 +1,64 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-#load 1D random walk data from the data folder
-random_walk_1D_data = np.load(r'data/data/random_walk_1D_data.npy')
+def mean(random_walks):
+    """
+    Calculate the mean position of all walkers at every step
+    
+    Parameters
+    ----------
+    random_walks: array_like
+                  Input array.
+    
+    Returns:
+    --------
+    mean: nd_array
+          Mean at every step                
+    
+    """
+    return np.mean(random_walks, axis = 0)
+    
+    
+def mean_sqrd(random_walks)
+    """
+    Calculate the mean position of all walkers at every step
+    
+    Parameters
+    ----------
+    random_walks: array_like
+                  Input array.
+    
+    Returns:
+    --------
+    mean_sqrd: nd_array
+               mean squared position at every step                
+    
+    """
+    return = np.mean(random_walk_1D_data**2, axis = 0)
+    
+def diffusion_coefficient(random_walks)
+    """
+    Calculate the diffusion coefficient D of the random walkers
+    D = <x^2>/(2*t) with <x^2> the mean position squared of the walkers at time t.
+    Obtained by linear fit through the mean squared positions at different times t.
+    
+    Parameters
+    ----------
+    random_walks: array_like
+                  Input array.
+    
+    Returns:
+    --------
+    D: float
+       Diffusion coefficient                
+    
+    """
 
-
-#calculate the mean (<x>) the mean squared (<x^2>)
-mean = np.mean(random_walk_1D_data, axis = 0)
-mean_sqrd = np.mean(random_walk_1D_data**2, axis = 0)
-Nsteps = np.shape(mean)[0]
-time = np.arange(Nsteps)
-
-#Plot the mean squared and fit a linear trend
-fig, ax = plt.subplots()
-ax.plot(mean_sqrd)
-
-[a, b] = np.polyfit(time, mean_sqrd, deg = 1)
-ax.plot(time, b + a*time)
-
-plt.savefig('analyze/oneD_walk_mean_sqrd')
-
-#calculate the diffusion coefficient
-diff_coef = a*2
-
-#Save extracted parameters
-np.save('analyze/random_walk_1D_mean', mean)
-np.save('analyze/random_walk_1D_meanSqrd', mean_sqrd)
-np.save('analyze/random_walk_1D_diffusioncoef', diff_coef)
+    Nsteps = np.shape(random_walks)[0]
+    time = np.arange(Nsteps)
+    [a, b] = np.polyfit(time, mean_sqrd(random_walks), deg = 1)
+    
+    #calculate the diffusion coefficient
+    D = a*2
+    
+    return D
