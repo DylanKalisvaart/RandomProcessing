@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 
 a = 1
 y0 = 0
+k = 2
 
 xdata = np.linspace(0,1,101)
 ydata = regression.exp(xdata, a, y0) + 0.15*np.random.normal(0, .1, xdata.shape)
