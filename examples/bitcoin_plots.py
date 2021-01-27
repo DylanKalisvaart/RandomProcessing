@@ -38,7 +38,7 @@ def BTC_plot(data,mean,fit,figname):
     ax1.plot(time, data)
     ax1.plot(time, np.ones(np.size(time))*mean, 'r--')
     ax1.plot(time, fit)
-    ax1.legend('BTC Price', 'Mean', 'Exponential fit')
+    ax1.legend(('BTC Price', 'Mean', 'Exponential fit'))
 
     #Customize all axes
 
