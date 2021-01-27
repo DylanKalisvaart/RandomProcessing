@@ -27,12 +27,12 @@ fig.savefig('processed_data/BTC_raw_and_filtered.png')
 
 #Obtain sample mean of raw data
 mean = stat.mean(data)
-popt = regr.fit_poly(ticks, data, degree = 3)
+popt = regr.fit_poly(ticks, data, degree = 5)
 fit = regr.compute_poly(popt, ticks)
 
 #Obtain sample mean of filtered data
 mean_f = stat.mean(filtered_data)
-popt_f = regr.fit_poly(ticks, data, degree=3)
+popt_f = regr.fit_poly(ticks, data, degree=5)
 fit_f = regr.compute_poly(popt_f, ticks)
 
 #Analysis plots for raw and filtered data
