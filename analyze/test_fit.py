@@ -7,7 +7,7 @@ y0 = 0
 k = 2
 
 xdata = np.linspace(0,1,101)
-ydata = regression.exp(xdata, a, y0) + 0.15*np.random.normal(0, .1, xdata.shape)
+ydata = regression.exp(xdata, k, a, y0) + 0.15*np.random.normal(0, .1, xdata.shape)
 
 #find optimal parameters
 popt = regression.fit_exp(xdata, ydata)
