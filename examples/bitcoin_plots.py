@@ -47,8 +47,8 @@ def BTC_plot(data,mean,fit,figname):
                   pad = pad_dist)
 
     #Set all x,y labels
-    ax1.set_xlabel('steps', fontsize = label_fontsize )
-    ax1.set_ylabel('position', fontsize = label_fontsize)
+    ax1.set_xlabel('Ticks (price updates) since 27-10-2020', fontsize = label_fontsize )
+    ax1.set_ylabel('BTC Price ($)', fontsize = label_fontsize)
 
     #tight layout and save figure in the postprocess folder
     plt.tight_layout(pad = 2)

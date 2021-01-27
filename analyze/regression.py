@@ -41,3 +41,35 @@ def fit_exp(xdata, ydata):
     popt,pcov = optimize.curve_fit(exp, xdata, ydata)
     
     return popt
+
+def compute_poly(p,xdata):
+    """
+    Calculate polynomial series with coefficients p
+    
+    Parameters
+    ----------
+    xdata: array_like
+       Input values
+    p: polynomial coefficients
+        
+    Returns
+    -------
+    out: ndarray or scalar
+         Output array, element-wise y0 + k*exp(a*x). This is a scalar if x is a scalar
+    """
+    return np.polyval(p,xdata)
+
+def fit_poly(xdata,ydata,degree=3):    
+    """
+    Fit a polynomial series to the data
+    
+    Parameters
+    ----------
+    
+    Returns
+    -------
+    popt: array
+          Optimal values for the parameters so that the sum of the squared residuals of f(xdata, *popt) - ydata is minimized
+    """
+    p = np.polyfit(xdata,ydata,degree)
+    return p
