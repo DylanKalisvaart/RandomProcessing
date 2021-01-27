@@ -1,12 +1,12 @@
 import numpy as np
 
-def mean(random_walks):
+def mean(data):
     """
     Calculate the mean position of all walkers at every step
     
     Parameters
     ----------
-    random_walks: array_like
+    data: array_like
                   Input array.
     
     Returns:
@@ -15,16 +15,16 @@ def mean(random_walks):
           Mean at every step                
     
     """
-    return np.mean(random_walks, axis = 0)
+    return np.mean(data, axis = 0)
     
     
-def mean_sqrd(random_walks):
+def mean_sqrd(data):
     """
     Calculate the mean position of all walkers at every step
     
     Parameters
     ----------
-    random_walks: array_like
+    data: array_like
                   Input array.
     
     Returns:
@@ -33,9 +33,9 @@ def mean_sqrd(random_walks):
                mean squared position at every step                
     
     """
-    return np.mean(random_walks**2, axis = 0)
+    return np.mean(data**2, axis = 0)
     
-def diffusion_coefficient(random_walks):
+def diffusion_coefficient(data):
     """
     Calculate the diffusion coefficient D of the random walkers
     D = <x^2>/(2*t) with <x^2> the mean position squared of the walkers at time t.
@@ -43,7 +43,7 @@ def diffusion_coefficient(random_walks):
     
     Parameters
     ----------
-    random_walks: array_like
+    data: array_like
                   Input array.
     
     Returns:
@@ -53,9 +53,9 @@ def diffusion_coefficient(random_walks):
     
     """
 
-    Nsteps = np.shape(random_walks)[1]
+    Nsteps = np.shape(data)[0]
     time = np.arange(Nsteps)
-    [a, b] = np.polyfit(time, mean_sqrd(random_walks), deg = 1)
+    [a, b] = np.polyfit(time, mean_sqrd(data), deg = 1)
     
     #calculate the diffusion coefficient
     D = a*2
