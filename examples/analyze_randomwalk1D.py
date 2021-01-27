@@ -28,7 +28,8 @@ mean_sqrd = calc_statistics.mean_sqrd(random_walk_1D_data)
 diff_coef = calc_statistics.diffusion_coefficient(random_walk_1D_data)
 
 
-###########Make a summary Figure
+#########################
+#    Make a summary Figure
 ##Fig 1 random walks, Fig 2 filtering data, Fig 3 diffusion, Fig 4 histogram
 fig, axs = plt.subplots(2,2,figsize = (11,8))
 

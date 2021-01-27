@@ -32,7 +32,11 @@ def fit_exp(xdata, ydata):
     
     Parameters
     ----------
-    
+    xdata: array_like
+           Input x-values
+    ydata: array_like
+           Input y-values
+           
     Returns
     -------
     popt: array
@@ -49,13 +53,13 @@ def compute_poly(p,xdata):
     Parameters
     ----------
     xdata: array_like
-       Input values
+           Input values
     p: polynomial coefficients
         
     Returns
     -------
     out: ndarray or scalar
-         Output array, element-wise y0 + k*exp(a*x). This is a scalar if x is a scalar
+         Output array, element-wise evaluation of the polynoial. This is a scalar if x is a scalar
     """
     return np.polyval(p,xdata)
 
@@ -65,7 +69,11 @@ def fit_poly(xdata,ydata,degree=3):
     
     Parameters
     ----------
-    
+    xdata: array_like
+           Input x-values
+    ydata: array_like
+           Input y-values
+           
     Returns
     -------
     popt: array

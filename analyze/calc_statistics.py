@@ -53,7 +53,7 @@ def diffusion_coefficient(data):
     
     """
 
-    Nsteps = np.shape(data)[0]
+    Nsteps = np.shape(data)[1]
     time = np.arange(Nsteps)
     [a, b] = np.polyfit(time, mean_sqrd(data), deg = 1)
     
