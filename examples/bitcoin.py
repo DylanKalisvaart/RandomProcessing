@@ -7,10 +7,12 @@ import matplotlib.pyplot as plt
 from RandomProcessing.data import data_importing as dimp
 from RandomProcessing.preprocess import filtering as filt
 from RandomProcessing.analyze import calc_statistics as stat
+from RandomProcessing.analyze import regression as regr
 from bitcoin_plots import BTC_plot
 
 #Importing data
 data = dimp.csv_2_np(r'raw_data/BTC_3months.csv')
+ticks = np.arange(np.size(data))
 
 #Filtering with moving average filter
 filtered_data = filt.moving_average(data,size=5)
@@ -25,10 +27,14 @@ fig.savefig('processed_data/BTC_raw_and_filtered.png')
 
 #Obtain sample mean of raw data
 mean = stat.mean(data)
+popt = regr.fit_exp(ticks, data)
+fit = regr.exp(ticks, *popt)
 
 #Obtain sample mean of filtered data
 mean_f = stat.mean(filtered_data)
+popt_f = regr.fit_exp(ticks, data)
+fit_f = regr.exp(ticks, *popt_f)
 
 #Analysis plots for raw and filtered data
-BTC_plot(data, mean, figname='analyze_raw_data')
-BTC_plot(filtered_data, mean_f, figname='analyze_filtered_data')
+BTC_plot(data, mean, fit, figname='analyze_raw_data')
+BTC_plot(filtered_data, mean_f, fit_f, figname='analyze_filtered_data')

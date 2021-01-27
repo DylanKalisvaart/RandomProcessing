@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.gridspec as gridspec
 
-def BTC_plot(data,mean,figname):
+def BTC_plot(data,mean,fit,figname):
     '''
     BTC_plot(data, mean, figname) plots the BTC data and mean in the BTC example
     
@@ -37,7 +37,8 @@ def BTC_plot(data,mean,figname):
     #Plot the BTC price as a function of time
     ax1.plot(time, data)
     ax1.plot(time, np.ones(np.size(time))*mean, 'r--')
-    ax1.legend('BTC Price', 'Mean')
+    ax1.plot(time, fit)
+    ax1.legend('BTC Price', 'Mean', 'Exponential fit')
 
     #Customize all axes
 
